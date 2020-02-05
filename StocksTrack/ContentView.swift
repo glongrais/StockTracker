@@ -9,8 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    let stocks = ["ESI.PA", "AAPL", "GOOG", "UG.PA"]
+    let nbStock = [[93.0, 28.4], [0, 0], [0, 0], [0, 0]]
     var body: some View {
-        Text("Hello World")
+        VStack{
+            SearchBarView()
+            List{
+                ForEach(0 ..< self.stocks.count){ i in
+                    StockCellView(stock: self.stocks[i], nbStock: self.nbStock[i])
+                }
+            }
+            .background(Color("backgroundColor"))
+        }
     }
 }
 
